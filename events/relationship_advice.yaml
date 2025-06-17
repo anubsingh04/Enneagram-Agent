@@ -1,0 +1,37 @@
+http.post./relationship_advice:
+  fn: relationship_advice
+  body:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - session_id 
+            - user_query
+          properties:
+            session_id:
+              type: string
+            user_query:
+              type: string
+  responses:
+    200:
+      description: Response generated successfully. 
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Success message
+    400:
+      description: Invalid Query
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+

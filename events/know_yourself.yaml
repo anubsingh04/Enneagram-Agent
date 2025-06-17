@@ -1,0 +1,37 @@
+http.post./know_yourself:
+  fn: know_yourself
+  body:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - sessionId
+            - userInput
+          properties:
+            sessionId:
+              type: string
+            userInput:
+              type: string
+  responses:
+    200:
+      description: Response generated successfully. 
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Success message
+    400:
+      description: Invalid Query
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+
